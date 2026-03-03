@@ -54,10 +54,4 @@ public class NoteController {
         noteService.deleteNote(id);
     }
 
-    @GetMapping("/user/{userId}")
-    public List<Note> getNotesByUserId(@PathVariable String userId) {
-        return noteService.getNotesByUserId(userId);
-    }
-    
-    
 }
