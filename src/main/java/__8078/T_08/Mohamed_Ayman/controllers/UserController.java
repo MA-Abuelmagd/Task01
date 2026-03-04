@@ -12,8 +12,10 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.RestController;
 
+import __8078.T_08.Mohamed_Ayman.models.Note;
 import __8078.T_08.Mohamed_Ayman.models.User;
 import __8078.T_08.Mohamed_Ayman.services.UserSevice;
+import __8078.T_08.Mohamed_Ayman.services.NoteService;
 
 
 
@@ -24,8 +26,10 @@ import __8078.T_08.Mohamed_Ayman.services.UserSevice;
 @RequestMapping("/users")
 public class UserController {
     private final UserSevice userService;
+    private final NoteService noteService;
     public UserController(UserSevice userService) {
         this.userService = userService;
+        this.noteService = noteService;
     }
 
     @GetMapping
@@ -59,7 +63,10 @@ public class UserController {
     }
     
 
-    
+    @GetMapping("/{id}/notes")
+    public List<Note> getNotesByUserId(@PathVariable String id) {
+        return noteService.getNotesByUserId(id);
+    }
     
 
 }
