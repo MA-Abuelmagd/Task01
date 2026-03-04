@@ -27,7 +27,8 @@ import __8078.T_08.Mohamed_Ayman.services.NoteService;
 public class UserController {
     private final UserSevice userService;
     private final NoteService noteService;
-    public UserController(UserSevice userService) {
+    
+    public UserController(UserSevice userService, NoteService noteService) {
         this.userService = userService;
         this.noteService = noteService;
     }
